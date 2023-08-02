@@ -1,4 +1,7 @@
+import { useState } from "react"
+import './App.css'
 
+// i componenti si dichiarano attraverso delle funzioni 
 export default function App(){
   // Definizione dello stato per il nuovo elemento e la lista di tutti gli elementi
   const [newItem, setNewItem] = useState('')
@@ -33,7 +36,7 @@ export default function App(){
   function deleteTodo(id){
     setTodos(currentTodos => {
       // Filtra i todo per escludere quello con l'id corrispondente
-      return currentTodos.filter((todo)=> {return  todo.id!== id})
+      return currentTodos.filter((todo)=> {return  todo.id !== id})
     })
   }
 
@@ -65,7 +68,7 @@ export default function App(){
               {todo.title}
             </label>
             {/* Bottone per eliminare il todo */}
-            <button className='btn btn-danger' onClick={()=> deleteTodo(todo.id)}>delete</button>
+            <button className='btn btn-danger' onClick={() => deleteTodo(todo.id)}>delete</button>
           </li>
         )})}
       </ul>
